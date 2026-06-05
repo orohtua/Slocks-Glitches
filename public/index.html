@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anti-Racist Results-Based Accountability System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Anti-Racist Results-Based Accountability</h1>
+      <p>Collect, Report & Visualize Participant-Level Outcomes</p>
+    </header>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="#dashboard" onclick="loadDashboard()">Dashboard</a></li>
+        <li><a href="#participants" onclick="loadParticipants()">Participants</a></li>
+        <li><a href="#outcomes" onclick="loadOutcomes()">Outcomes</a></li>
+        <li><a href="#reports" onclick="loadReports()">Reports</a></li>
+      </ul>
+    </nav>
+
+    <main id="content">
+      <section id="dashboard" class="section">
+        <h2>Dashboard</h2>
+        <div class="dashboard-grid">
+          <div class="card">
+            <h3>Total Participants</h3>
+            <p id="total-participants" class="stat">0</p>
+          </div>
+          <div class="card">
+            <h3>Active Programs</h3>
+            <p id="active-programs" class="stat">0</p>
+          </div>
+          <div class="card">
+            <h3>Outcomes Tracked</h3>
+            <p id="outcomes-tracked" class="stat">0</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="participants" class="section" style="display:none;">
+        <h2>Participants</h2>
+        <div class="form-section">
+          <h3>Add New Participant</h3>
+          <form id="participant-form">
+            <input type="text" id="name" placeholder="Participant Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="program" placeholder="Program Name" required>
+            <button type="submit">Add Participant</button>
+          </form>
+        </div>
+        <div id="participants-list" class="list-section"></div>
+      </section>
+
+      <section id="outcomes" class="section" style="display:none;">
+        <h2>Outcomes</h2>
+        <div class="form-section">
+          <h3>Record Outcome</h3>
+          <form id="outcome-form">
+            <input type="text" id="participant-id" placeholder="Participant ID" required>
+            <input type="text" id="outcome-type" placeholder="Outcome Type" required>
+            <textarea id="outcome-description" placeholder="Outcome Description" required></textarea>
+            <input type="date" id="outcome-date" required>
+            <button type="submit">Record Outcome</button>
+          </form>
+        </div>
+        <div id="outcomes-list" class="list-section"></div>
+      </section>
+
+      <section id="reports" class="section" style="display:none;">
+        <h2>Reports</h2>
+        <div class="report-section">
+          <button onclick="generateReport('summary')">Generate Summary Report</button>
+          <button onclick="generateReport('detailed')">Generate Detailed Report</button>
+          <button onclick="generateReport('export')">Export Data</button>
+        </div>
+        <div id="report-output"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Anti-Racist Results-Based Accountability System. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
